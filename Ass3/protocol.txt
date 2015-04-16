@@ -1,0 +1,58 @@
+################################################################################
+#				PROTOCOL                                       #
+#									       #
+#	Assignment	:	3					       #
+#	Student		:	Samara Drewe				       #
+#	ID		:	4921860					       #
+#									       #
+################################################################################
+
+Problem:  	Using the code in files udp_remote.py and udp_local.py write a
+		messaging system. 
+
+Needs:		user database
+		message database for each user
+		functions script file
+		main script file
+
+Functions:	
+    logIn
+		logOut
+		whoIsOn
+		send
+		help
+		
+Scenario1:	
+    user1 logs in as client
+		server welcomes user1
+		server checks for messages and finds none
+		user1 checks to see if user2 is online
+		server informs user1 that user2 is not available
+		user1 sends user2 mail
+		user1 logs off
+-- This scenario works perfectly in the program, there aren't any problems with it. 
+
+Scenario2:	
+    user1 logs in as client
+		server welcomes user1
+		user2 logs in as client
+		server welcomes user2
+		user1 checks to see if user2 is online
+		server informs user1 that user2 is available
+		user1 sends user2 message
+		server delivers message to user2
+		user2 receives message
+		user2 sends user1 message
+		server delivers message to user1
+		user1 logs off
+		user2 logs off
+-- This scenario isn't working very well. user1 and user2 can send each other messages but must log in and out to receive them which is a bit bothersome. With a little time I could figure out the bugs and how to fix them but with time constraints, I didn't want to push the envelope too far with it.
+
+Scenario3:	
+    user2 logs in as client
+		server welcomes user2
+		server alerts client to messages
+		server delivers mail
+		user2 logs off
+-- This scenario also works perfectly. Message retrieval is quick and I overcame the problem of deleted messages.
+
