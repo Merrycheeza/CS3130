@@ -14,7 +14,7 @@ This is a messenging program that interacts between server and client.
 4) Display
 
 Included are 4 files:
-- messeges.txt
+- messages.txt
     - This file contains all of the messages that are sent between clients.
 - functions.py
     - This file contains all of the functions written for the program.
