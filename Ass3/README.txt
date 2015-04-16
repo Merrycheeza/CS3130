@@ -27,6 +27,10 @@ Unexpected problems (can we call these features?):
 - If two people are logged in and trying to message each other, it will tell the one that logged in last that they are not online. It will still send the message but the return message is wrong and I couldn't figure out why.
 - The instant messenger isn't exactly instant. The client has to log in and out because I couldn't get the iMess() function to work properly.
 
-To start type:
+To start as server type:
 
-python3.4 server.py
+python3.4 server.py server ''
+
+To start as client type:
+
+python3.4 server.py client ''
