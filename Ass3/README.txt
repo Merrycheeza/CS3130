@@ -26,6 +26,7 @@ Included are 4 files:
 Unexpected problems (can we call these features?):
 - If two people are logged in and trying to message each other, it will tell the one that logged in last that they are not online. It will still send the message but the return message is wrong and I couldn't figure out why.
 - The instant messenger isn't exactly instant. The client has to log in and out because I couldn't get the iMess() function to work properly.
+- If a client just closes the terminal window instead of logging off, the username will remain unusable until the server is restarted. I had implemented a different way of logging off to avoid this but it was cumbersome to the user.
 
 To start as server type:
 
