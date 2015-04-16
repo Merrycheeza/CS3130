@@ -9,6 +9,7 @@ ONLINE = []
 SESSION_ID = []
 USERS = ['Larena','Samara','Franco','Janelle']
 
+# function that displays the menu to the client
 def menu():
     print("--------------------")
     print("--Welcome to SaMMS--")
@@ -21,19 +22,7 @@ def menu():
     print(">>    help")
     print(">> Remember commands are case sensitive")
 
-def getDB():
-    data = []
-    f = open('users.txt', 'r')
-    uLines = f.readlines()
-
-    for line in uLines:
-        line = line.strip()
-        tmp = line.split(':')
-        user = {'a':tmp[0], 'b':tmp[1]}
-        data.append(user)
-    f.close()
-    return data
-
+# function that handles client logs ins and calls checkMess() to retrieve messages for the user
 def logIn(command,address):
     user = command[1]
 
@@ -49,7 +38,10 @@ def logIn(command,address):
         ONLINE.append(user)
         SESSION_ID.append(record)
     return message
-    
+
+# function that opens the message database and 
+# retrieves the messages for the user it also deletes the ones that have been displayed
+# it calls the getMess() protocol to format the messages for the server
 def checkMess(command):
     user = command
     data = []
@@ -89,6 +81,8 @@ def checkMess(command):
         message += str(getMess(deliver))
     return message
 
+# function that allows the user to log off using the address that the user is on to 
+# trace them. 
 def logOut(command,address):
 	for i in range(0,len(SESSION_ID)):
 		if address[1] == SESSION_ID[i]['b']:
@@ -101,6 +95,7 @@ def logOut(command,address):
 
 	return message
 
+# function to send messages to other users
 def sendMess(command,address):
     data = command
     message = ''
@@ -129,6 +124,7 @@ def sendMess(command,address):
     
     return message
 
+# function to format the messages retrieved
 def getMess(messages):
     data = messages
     message = ''
@@ -137,6 +133,8 @@ def getMess(messages):
         message += ">>     "+str(data[i]['b'])+" : "+str(data[i]['c'])+"\n"
     return message
 
+# function to check for new messages, to be called by the server every time a
+# command is entered by the client... it is not working correctly.
 def iMess(address):
 	user = address
 
@@ -181,6 +179,7 @@ def iMess(address):
 		message = str(getMess(deliver))
 	return message
 
+# function to tell the user who is online
 def whoIsOn():
 	uol = set()
 	nol = set()
@@ -198,6 +197,7 @@ def whoIsOn():
 	
 	return message
 
+# function to display the accepted commands for the user
 def help():
     message = "\n>> The following commands are supported:\n>>    logIn <username>\n>>    whoIsOn\n>>    send <username> <message>\n>>    logOut <username> <session ID>\n>>    help\n>> Remember commands are case sensitive\n"
     return message
