@@ -15,13 +15,15 @@ As in assignment 1, the commands include:
 3) Remove
 4) Display
 
-Included are 3 files:
+Included are 4 files:
 - database.txt
     - This file contains all of the employees and their details
 - functions.py
     - This file contains all of the functions written for both the client and server in the program
 - main.py
     - This file handles the server and client respectively
+- protocols.txt
+    - This file contains the protocol numbers used in the program
 
 I used Windows to make this and the start up commands are different than in linux.
 
