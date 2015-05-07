@@ -1,0 +1,19 @@
+Protocols used for this program are as follows:
+
++100 -- adding an employee to the database
+-101 -- addition a failure
++110 --addition success
+
++200 -- searching the database for an employee ID
+-202 -- failed to find ID
++220 -- successful finding ID
+
++300 -- removing an employee from the database
+-303 -- failed to find ID
++330 -- successful removing the employee
+
++400 -- display the database
+-404 -- database not found
++440 -- successful in displaying the database
+
++500 -- to quit
