@@ -16,7 +16,8 @@ end = '.' #the server uses this to see if the information is complete
 host = ('127.0.0.1') #hard coded the host and port because windows is hard
 port = 2015
 
-# server function to handle all the requests from the client    
+# this function is the TCP server
+# it handles all the requests from the client    
 def server(port):
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -77,7 +78,9 @@ def server(port):
         sc.close()
         print('Socket is now closed.')
 
-#this function is the TCP client
+# this function is the TCP client
+# it allows the user to make requests from the server
+# and interact with the database
 def client(port):
     functions.mainMenu()
   
