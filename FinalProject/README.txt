@@ -22,3 +22,10 @@ This file includes 2 databases:
 2 Function files:
   1) main.py
   2) functions.py
+
+To begin the program open a server window and type: python3 main.py server
+In a windows cmd window type: main.py server
+Then open a client window and type: python3 main.py client
+In a Windows cmd window type: main.py client
+
+Enjoy!!!
