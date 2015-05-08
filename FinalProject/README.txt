@@ -9,7 +9,7 @@
 
 For this final project, I chose to create a choose your own adventure story. The story itself is static and the players can move through it by making choices on each page.
 
-At any time during their progression, the players have the option to display a help menu, save, or quit. Each page has two choices that the player can decide between, so the client and server functions remain static throughout the whole program as well, but they seem to be more dynamic because the choices change for the player.
+At any time during their progression, the players have the option to display a help menu or quit. Each page has two choices that the player can decide between, so the client and server functions remain static throughout the whole program as well, but they seem to be more dynamic because the choices change for the player.
 
 This file includes 2 databases:
 	1) users {username, password, current location}
