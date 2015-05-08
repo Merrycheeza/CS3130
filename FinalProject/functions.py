@@ -209,6 +209,21 @@ def help():
     return message
        
 def createAccount(command):
+    data = userDB()
     user = command
+
+    for i in range(0,len(data)):
+        if user[1] == data[i]['a']:
+            message = "Sorry that username is already taken."
+        else:
+            newUser = [user[1],":",str(user[2]),":",str(0)]
+            users = open("user.txt","a")
+            users.writelines(newUser)
+            users.write("\n")
+            users.close()
+            USERS.append(user[1])
+            message = "\nAddition Successful. Please type quit and log in using your new account.\n"
+            
+    return message
     
     
