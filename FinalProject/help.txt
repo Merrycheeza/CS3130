@@ -1,0 +1,13 @@
+>> Welcome to "Peanut Butter Jelly Time" an interactive story with
+>>   many wonderful endings that you can choose yourself.
+>>
+>> The following commands are supported at any time:
+>>
+>>    help  - will bring you this screen, full of helpful commands
+>>
+>>    quit  - this will remove your name from the current user list
+>> 
+>> Page options and logins are only available at designated times.
+>>
+>> Please remember that all commands and usernames are case sensitive 
+>>   and will not work if you are using capslock or shift at the wrong time.
