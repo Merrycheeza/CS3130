@@ -1,0 +1,4 @@
+invalid:password:0
+guest:guest:0
+Franco:1111:0
+Samara:1234:0
