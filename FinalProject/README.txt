@@ -29,3 +29,5 @@ Then open a client window and type: python3 main.py client
 In a Windows cmd window type: main.py client
 
 Enjoy!!!
+
+p.s. There were a few pages still under construction at the submission of this project but there are enough finished to show how the program works.
