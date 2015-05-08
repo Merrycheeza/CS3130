@@ -207,7 +207,8 @@ def help():
         message += '\n'
     f.close()
     return message
-       
+
+# function to create a new user      
 def createAccount(command):
     data = userDB()
     user = command
