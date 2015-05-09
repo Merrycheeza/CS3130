@@ -20,7 +20,7 @@ port = 2015
 
 ONLINE = []
 SESSION_ID = []
-USERS = ['guest','Samara', 'Franco', 'Coca', 'Tulip']
+#USERS = ['guest', 'Samara', 'Franco', 'Coca', 'Tulip']
 
 # function to read the story database
 def readDB():
@@ -48,6 +48,17 @@ def userDB():
     f.close()
     return data
 
+def getUsers():
+    data = userDB()
+    users = []
+
+    for i in range(0,len(data)):
+        users.append(data[i]['a'])
+
+    print(users)
+
+    return users
+
 # function to print the title screen for the client    
 def titleScreen():
     data = []
@@ -64,6 +75,7 @@ def titleScreen():
 # function to log in an account holder or guest
 def login(command,address):
     user = command[1]
+    USERS = getUsers()
 
     if user not in USERS:
         message = ">> User "+user+" is not a valid account."
@@ -129,8 +141,14 @@ def chooseNext(command, address):
     data = readDB()
     param = int(command[0])
     addy = address[1]
+    logged = False
+    print(SESSION_ID)
 
-    if addy in SESSION_ID:
+    for i in range(0,len(SESSION_ID)):
+        if addy == SESSION_ID[i]['b']:
+            logged = True
+
+    if logged:         
         user = getUser(address)
         if user == 'guest':
             message = "Sorry, you are not logged in."
@@ -198,11 +216,6 @@ def logout(command,address):
             message = ">> You have to be logged in to log out!"
 
     return message
-
-# function to force quit a user if they disconnected
-# not finished
-def fquit(command):
-    return
 
 # function to print out the help menu
 def help():
