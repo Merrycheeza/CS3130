@@ -132,18 +132,22 @@ def chooseNext(command, address):
 
     if addy in SESSION_ID:
         user = getUser(address)
-        for i in range(0,len(data)):
-            if user['c'] == data[i]['a']:
-                if param == 1:
-                    page = data[i]['c']
-                else:
-                    page = data[i]['d']
+        if user == 'guest':
+            message = "Sorry, you are not logged in."
+        else:
+            for i in range(0,len(data)):
+                if user['c'] == data[i]['a']:
+                    if param == 1:
+                        page = data[i]['c']
+                    else:
+                        page = data[i]['d']
 
-        message = placeHolder(page)
-        updateUser(user, page)
+            message = placeHolder(page)
+            updateUser(user, page)
 
     else:
         message = "Sorry, you are not logged in."
+    
 
     return message
 
