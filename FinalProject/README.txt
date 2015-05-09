@@ -33,8 +33,7 @@ Enjoy!!!
 Things that are not quite working right/Unexpected problems:
 1) There were a few pages still under construction at the submission of this project but there are enough finished to show how the program works.
 2) The create account function doesn't work quite right, someone with code access has to add the users to the global USERS before their accounts an become active.
-	- a possible solution to this is to not have a global users list and read the database every time you need to check if a username is valid
-3) The force quit function kept crashing the program, so I took it out. It was crashing the server whenever the client tried to force a username offline.
+	- a possible solution to this is to not have a global users list and read the database every time you need to check if a username is valid.
 
 
 On the bright side... the story is a bit funny.
