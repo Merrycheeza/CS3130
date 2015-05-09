@@ -20,7 +20,6 @@ port = 2015
 
 ONLINE = []
 SESSION_ID = []
-#USERS = ['guest', 'Samara', 'Franco', 'Coca', 'Tulip']
 
 # function to read the story database
 def readDB():
@@ -124,13 +123,19 @@ def checkPass(command):
 def getUser(address):
     data = userDB()
     cuser = []
+    logged = False
+    
     for i in range(0,len(SESSION_ID)):
         if address[1] == SESSION_ID[i]['b']:
             name = SESSION_ID[i]['a']
+            logged = True
 
-    for i in range(0,len(data)):
-        if name == data[i]['a']:
-            cuser = data[i]
+    if logged:
+        for i in range(0,len(data)):
+            if name == data[i]['a']:
+                cuser = data[i]
+    else:
+        cuser = data[0]
 
     return cuser
 
@@ -230,24 +235,32 @@ def help():
     f.close()
     return message
        
-def createAccount(command):
+def createAccount(command, address):
     data = userDB()
     user = command
+    cuser = getUser(address)
     taken = False
+    guest = False
 
-    for i in range(0,len(data)):
-        if user[1] == data[i]['a']:
-            taken = True
+    if cuser['a'] == 'guest':
+        guest = True
 
-    if taken:
-        message = "Sorry that username is already taken."
+    if guest:
+        for i in range(0,len(data)):
+            if user[1] == data[i]['a']:
+                taken = True
 
-    else:    
-        newUser = [user[1],":",str(user[2]),":",str(0)]
-        users = open("user.txt","a")
-        users.writelines(newUser)
-        users.write("\n")
-        users.close()
-        message = "\nAddition Successful. Please type quit and log in using your new account.\n"
-            
+        if taken:
+            message = "Sorry that username is already taken."
+
+        else:    
+            newUser = [user[1],":",str(user[2]),":",str(0)]
+            users = open("user.txt","a")
+            users.writelines(newUser)
+            users.write("\n")
+            users.close()
+            message = "\nAddition Successful. Please type quit and log in using your new account.\n"
+
+    else:
+        message = "Sorry, you must be logged in as guest to create an account."
     return message
