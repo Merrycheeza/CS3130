@@ -20,7 +20,7 @@ port = 2015
 
 ONLINE = []
 SESSION_ID = []
-USERS = ['guest','Samara', 'Franco']
+USERS = ['guest','Samara', 'Franco', 'Coca', 'Tulip']
 
 # function to read the story database
 def readDB():
@@ -128,18 +128,23 @@ def getUser(address):
 def chooseNext(command, address):
     data = readDB()
     param = int(command[0])
-    user = getUser(address)
+    addy = address[1]
 
-    for i in range(0,len(data)):
-        if user['c'] == data[i]['a']:
-            if param == 1:
-                page = data[i]['c']
-            else:
-                page = data[i]['d']
+    if addy in SESSION_ID:
+        user = getUser(address)
+        for i in range(0,len(data)):
+            if user['c'] == data[i]['a']:
+                if param == 1:
+                    page = data[i]['c']
+                else:
+                    page = data[i]['d']
 
-    message = placeHolder(page)
-    updateUser(user, page)
-    
+        message = placeHolder(page)
+        updateUser(user, page)
+
+    else:
+        message = "Sorry, you are not logged in."
+
     return message
 
 # function to update the user as s/he advances in the story
@@ -207,8 +212,7 @@ def help():
         message += '\n'
     f.close()
     return message
-
-# function to create a new user      
+       
 def createAccount(command):
     data = userDB()
     user = command
@@ -226,5 +230,3 @@ def createAccount(command):
             message = "\nAddition Successful. Please type quit and log in using your new account.\n"
             
     return message
-    
-    
